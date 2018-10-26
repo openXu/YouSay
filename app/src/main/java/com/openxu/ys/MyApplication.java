@@ -6,6 +6,7 @@ import com.iflytek.cloud.Setting;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 import com.openxu.oxlib.utils.LogUtil;
+import com.openxu.oxlib.utils.ToastAlone;
 
 /**
  * Created by Admin on 2018/8/13.
@@ -16,6 +17,8 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        ToastAlone.init(this);
 
         // 应用程序入口处调用，避免手机内存过小，杀死后台进程后通过历史intent进入Activity造成SpeechUtility对象为null
         // 如在Application中调用初始化，需要在Mainifest中注册该Applicaiton

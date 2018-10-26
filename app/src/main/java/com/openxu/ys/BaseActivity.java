@@ -19,16 +19,19 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected String TAG;
 
     protected Context mContext;
-
+    protected TitleLayout title_layout;
     /**
      * 需要申请的权限
      */
     static final String[] PERMISSION = new String[]{
-            Manifest.permission.READ_PHONE_STATE,
+            Manifest.permission.RECORD_AUDIO, //录音
+            Manifest.permission.READ_PHONE_STATE,  //读取手机信息权限
+//            Manifest.permission.READ_CONTACTS,  //读取联系人权限
             Manifest.permission.WRITE_EXTERNAL_STORAGE, // 写入权限
             Manifest.permission.READ_EXTERNAL_STORAGE,  //读取权限
-            Manifest.permission.CAMERA, //摄像头
-            Manifest.permission.RECORD_AUDIO //录音
+//            Manifest.permission.WRITE_SETTINGS,  //配置权限
+//            Manifest.permission.ACCESS_FINE_LOCATION,  //定位
+//            Manifest.permission.CAMERA //人脸识别 摄像头
     };
 
     @Override
@@ -39,7 +42,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         int layoutID = getLayoutID();
         if (layoutID != 0) {
             setContentView(layoutID);
-           /* ButterKnife.bind(this);
+           // ButterKnife.bind(this);
             View title = findViewById(R.id.title_layout);
             if (title != null) {
                 title_layout = (TitleLayout) title;
@@ -54,12 +57,6 @@ public abstract class BaseActivity extends AppCompatActivity {
                     onMenuClick(menu, view);
                 });
             }
-            title = findViewById(R.id.swipe_refresh_id);
-            if (title != null) {
-                swipe_refresh_id = (SwipeRefreshLayout) title;
-                swipe_refresh_id.setColorSchemeResources(R.color.title_bar_color);
-            }*/
-
         }
 
         initView();

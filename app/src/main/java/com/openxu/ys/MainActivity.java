@@ -1,14 +1,13 @@
 package com.openxu.ys;
 
 import android.content.Intent;
-import android.widget.Button;
 
 import com.iflytek.voicedemo.IatDemo;
+import com.openxu.offLine.DictationOffLineActivity;
+import com.openxu.offLine.DictationOffLineTestActivity;
 
 public class MainActivity extends BaseActivity {
 
-
-    Button btn1, btn2,btn3;
 
 
     @Override
@@ -20,17 +19,20 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         super.initView();
 
-        btn1 = findViewById(R.id.btn1);
-        btn2 = findViewById(R.id.btn2);
-        btn3 = findViewById(R.id.btn3);
-        btn1.setOnClickListener(v->{
+        findViewById(R.id.btn1).setOnClickListener(v->{
             startActivity( new Intent(mContext, IatDemo.class));
         });
-        btn2.setOnClickListener(v->{
-            startActivity( new Intent(mContext, YyzxActivity.class));
+        findViewById(R.id.btn2).setOnClickListener(v->{
+            startActivity( new Intent(mContext, DictationTestActivity.class));
         });
-        btn3.setOnClickListener(v->{
-            startActivity( new Intent(mContext, YzsActivity.class));
+        findViewById(R.id.btn3).setOnClickListener(v->{
+            startActivity( new Intent(mContext, DictationActivity.class));
+        });
+        findViewById(R.id.btn4).setOnClickListener(v->{
+            startActivity( new Intent(mContext, DictationOffLineTestActivity.class));
+        });
+        findViewById(R.id.btn5).setOnClickListener(v->{
+            startActivity( new Intent(mContext, DictationOffLineActivity.class));
         });
     }
 
